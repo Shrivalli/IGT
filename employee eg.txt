@@ -1,0 +1,74 @@
+employee.cs
+
+namespace secondconsole//public by default
+{
+     public class Employee //internal by default
+    {
+        //member variables
+        int eid;//private by default
+        string ename;
+        protected float salary;
+
+        float bonus;
+
+        //member functions - methods which operates on the member variables
+        public void Accept()
+        {
+            System.Console.WriteLine("Enter Eid, Ename and Salary");
+            eid=Convert.ToInt32(Console.ReadLine());
+            ename=Console.ReadLine();
+            salary=float.Parse(Console.ReadLine());
+        }
+
+        public void calculatebonus()
+        {
+            if(salary>5000 && salary<10000)
+             bonus=salary*10/100;
+             else if(salary>10000 && salary<50000)
+             bonus=salary*15/100;
+             System.Console.WriteLine("Bonus: "+bonus);
+            
+        }
+        public void Display()
+        {
+            System.Console.WriteLine("Your Details are:");           
+            System.Console.WriteLine("Eid: {0} Ename:{1} Salary:{2}",eid,ename,salary);
+        }
+
+       
+
+    }
+}
+
+permenantemp.cs
+
+using secondconsole;
+namespace secondconsoleapp
+{
+    class Permenantemp:Employee
+    {
+        int da, hra,pf;
+
+        public new void  Accept()
+        {
+            base.Accept(); //parent class method
+            System.Console.WriteLine("Enter DA, HRA, PF");
+            da=Convert.ToInt32(Console.ReadLine());
+            hra=Convert.ToInt32(Console.ReadLine());
+            pf=Convert.ToInt32(Console.ReadLine());
+        }
+
+        public void CalculateSalary()
+        {
+            salary=salary+da+hra-pf;
+        }
+
+        public new void Display()
+        {
+            base.Display();
+            System.Console.WriteLine("DA: "+da);
+            System.Console.WriteLine("HRA: "+hra);
+            System.Console.WriteLine("PF: "+pf);
+        }
+    }
+}
