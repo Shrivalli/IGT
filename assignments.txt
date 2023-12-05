@@ -1,0 +1,64 @@
+1. Create a class named product with following member variables and member functions
+
+member variables:
+1. productid
+2. product name
+3. price
+4. dateofmanufacture
+
+member functions:
+1. Accept()
+2. Display()
+3. calculate dateofexpiry (logic= dom+15 days)
+
+2. create a class named "Shape" 
+
+Member variables:
+color - string
+area - float 
+
+Member functions:
+1. Accept()
+2. Display()
+3. CalculateArea()
+
+Create 3 derived classes - Rectangle, Triangle, Cirlce
+
+Rectangle - 
+
+Member variables:
+Length - int
+Breadth- int 
+
+member functions:
+CalculateArea()
+
+Triangle -
+
+Member variables:
+Height - int
+Base- int 
+
+member functions:
+CalculateArea()
+
+Circle-
+Member variables:
+Radius - int
+
+member functions:
+CalculateArea()
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,79 @@
+.NET Core - 8.0(7.0) VS 2022 - windows, Linux,Mac - Visual Studio Code -.NET core SDK
+.NET f/w = 4.8 - VS2017/2019 - Windows
+
+.NET - framework - 
+
+1. BCL(base class libraries) 
+2. Runtime Environment - CLR  (Common Language Runtime)
+3. Programming Languages - C#, Visual Basic, F#, J#
+
+Visual Studio 2022 - IDE  (Integrated Development Environment) 
+
+Types of Applications:
+1. Desktop Application - Console (without GUI) , Windows (With GUI)
+2. Web Applications - Web App, MVC, API
+3. Mobile Applications - Xamarin - 
+
+Execution in .NET core
+
+1. C# source code - C# compiler - convert the C# source code into MSIL (Microsoft Intermediate Language)/CIL(Common IL)
+2. VB Source code - VB Compiler - convert the VB source code into MSIL
+
+MSIL --> CLR which has JIT compiler --> Native code which OS can execute
+
+Source code --> compilers --> MSIL --> CLR(JIT) --> Native code (exe)
+
+
+>dotnet new console --name secondconsoleapp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
