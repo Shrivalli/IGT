@@ -1,0 +1,78 @@
+using efcoreeg.Models;
+using Microsoft.EntityFrameworkCore.Migrations.Operations;
+namespace efcoreeg{
+    class Program
+    {
+        public static FareportalContext db=new FareportalContext();
+        public static void Main()
+        {
+        // DeleteData();   
+        UpdateData();
+          SelectData();
+        }
+
+        private static void SelectData()
+        {
+            var products = db.Products;
+            foreach (var item in products)
+            {
+                System.Console.WriteLine(item.Pid + " " + item.Pname + " " + item.Price);
+            }
+        }
+
+        private static void InsertData()
+        {
+            Product p=new Product();
+            System.Console.WriteLine("Enter Pid,Pname,Price,Qty,DOE,SupplierID");
+            p.Pid=Convert.ToInt32(Console.ReadLine());
+            p.Pname=Console.ReadLine();
+            p.Price=float.Parse(Console.ReadLine());
+            p.Qty=Convert.ToInt32(Console.ReadLine());
+            p.Doexp=Convert.ToDateTime(Console.ReadLine());
+            p.Suppid=Convert.ToInt32(Console.ReadLine());
+            db.Products.Add(p);
+            db.SaveChanges();
+        }
+
+        private static void DeleteData()
+        {
+        System.Console.WriteLine("Enter Pid for the item which you want to delete");
+            int prid=Convert.ToInt32(Console.ReadLine());   
+            var product=(from i in db.Products
+                        where i.Pid==prid
+                        select i).SingleOrDefault();
+        if(product!=null)
+        {
+            db.Products.Remove(product);
+            db.SaveChanges();
+        }
+            else{
+                System.Console.WriteLine("Sorry Id not present!!!");
+            }
+        }
+
+        private static Product GetProductById(int id)
+        {
+              var product=(from i in db.Products
+                        where i.Pid==id
+                        select i).SingleOrDefault();
+                        return product;
+        }
+
+
+        private static void UpdateData()
+        {
+            System.Console.WriteLine("Enter the product ID to be edited");
+            int id=Convert.ToInt32(Console.ReadLine());
+            Product p=GetProductById(id);
+            System.Console.WriteLine(p);
+            System.Console.WriteLine("Enter the Product name, price and qty");
+            p.Pname=Console.ReadLine();
+            p.Price=float.Parse(Console.ReadLine());
+            p.Qty=Convert.ToInt32(Console.ReadLine());
+            db.Products.Update(p);
+            db.SaveChanges();
+        }
+
+    }
+}
