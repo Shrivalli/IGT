@@ -1,3 +1,36 @@
+Employee.cs
+
+namespace firstmvcproject.Models
+{
+public class Employee
+{
+    public int Eid{get;set;}
+    public string? Ename{get;set;}
+    public float Salary{get;set;}
+
+    public static List<Employee> employees=new List<Employee>();
+
+    public static List<Employee> getemployees()
+    {
+        Employee e1=new Employee();
+        e1.Eid=101;
+        e1.Ename="Ram";
+        e1.Salary=12900;
+
+        Employee e2=new Employee();
+        e2.Eid=102;
+        e2.Ename="Radha";
+        e2.Salary=15900;
+        employees.Add(e1);
+        employees.Add(e2);
+        return employees;
+
+    }
+}
+}
+
+EmployeeController.cs
+
 using firstmvcproject.Models;
 using Microsoft.AspNetCore.Mvc;
 
