@@ -1,0 +1,100 @@
+Lab set up links
+
+.NET SDK 5:(windows x64)
+https://dotnet.microsoft.com/en-us/download/dotnet/5.0
+
+VS code :
+https://code.visualstudio.com/download
+
+SQL server download(Express)
+https://www.microsoft.com/en-in/sql-server/sql-server-downloads
+
+https://docs.microsoft.com/en-us/ef/core/cli/dotnet
+
+<ItemGroup>
+   <PackageGroup Include="Microsoft.EntityFrameworkCore.SqlServer" Version="1.1.0" />
+</ItemGroup>
+
+
+dotnet add package Microsoft.EntityFrameworkCore -v 6.0.10
+dotnet add package Microsoft.EntityFrameworkCore.tools -v 6.0.10
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer -v 6.0.10
+
+ <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0" />
+  <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.0" />
+  <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0">
+  <PrivateAssets>all</PrivateAssets>
+  <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+</PackageReference>
+
+
+Dotnet CLI
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+dotnet tool install --global dotnet-ef
+dotnet add package Microsoft.EntityFrameworkCore.Design
+
+Powershell
+Install-Package Microsoft.EntityFrameworkCore.SqlServer
+Install-Package Microsoft.EntityFrameworkCore.Tools
+
+Unit test project
+
+dotnet new list
+https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-dotnet-test
+Creating a DLL with VS code
+$ dotnet new classlib -o MyLib
+$ dotnet new sln #assuming there is no .sln file yet. if there is, skip this
+$ dotnet sln add MyLib/MyLib.csproj
+$ cd MyConsoleApp
+$ dotnet add reference ../MyLib/MyLib.csproj
+
+https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-new
+
+http://dotnetpattern.com/csharp-generics
+
+https://docs.microsoft.com/en-us/aspnet/core/fundamentals/tools/dotnet-aspnet-codegenerator?view=aspnetcore-6.0
+
+To install code generator in vs code:
+dotnet tool install -g dotnet-aspnet-codegenerator --version 6.0.10
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design --version 6.0.10
+
+To scaffolder a controller, we need to use the command below:
+dotnet aspnet-codegenerator controller -name EmpsController --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries --readWriteActions
+
+Api controller:
+>dotnet aspnet-codegenerator controller -name PrdController --relativeFolderPath Controllers -m Product -dc FareportalContext -api
+
+
+
+To scaffolder a view, the command is like below:
+
+dotnet aspnet-codegenerator view getallEmps List -m Employee -outDir Views\Employee --useDefaultLayout --referenceScriptLibraries
+
+dotnet-aspnet-codegenerator razorpage MyEdit Edit -m Movie -dc RazorPagesMovieContext -outDir Pages/Movies
+
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
+dotnet add package Microsoft.EntityFrameworkCore.Design
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+
+
+dotnet-aspnet-codegenerator [arguments] [-p|--project] [-n|--nuget-package-dir] [-c|--configuration] [-tfm|--target-framework] [-b|--build-base-path] [--no-build] 
+dotnet-aspnet-codegenerator [-h|--help]
+
+dotnet-aspnet-codegenerator area
+
+
+[Route("Default/GetRecordsById/{id}")]
+[Route("Default/GetRecordsById/{id:int}")]
+[Route("Default/GetRecordsById/{id:int:min(1)}")]
+
+
+
+
+
+
+
+
+
+
+
+
