@@ -1,0 +1,66 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace codefirsteg
+{
+   public class Employee
+    {
+        [Key]
+        public int Eid{get;set;}
+        
+        [Required(ErrorMessage ="Employee Name is Required")]
+        [Display(Name ="Employee Name")]
+        public string Ename{get;set;}
+
+        [Range(minimum:5000,maximum:15000,ErrorMessage ="Salary should be between 5k and 15k")]
+        public float Salary{get;set;}
+        [Required(ErrorMessage="Please Enter Email Id")]
+        [DataType(DataType.EmailAddress,ErrorMessage ="Please enter Valid Email")]
+        public string EmailId{get;set;}
+
+        [StringLength(maximumLength:10,MinimumLength =10,ErrorMessage ="Phone number should be exact 10 digits")]
+        public string ContactNumber{get;set;}
+        [DataType(DataType.Date,ErrorMessage ="Invalid Date")]
+        public DateTime DOB{get;set;}
+
+        [Required(ErrorMessage ="Password is Mandatory")]
+        public string Password{get;set;}
+
+        [NotMapped]
+        [Compare("Password",ErrorMessage ="Passwords do not match")]
+        public string ConfirmPassword{get;set;}
+        
+    }
+}
+
+ContextFile.cs
+
+using Microsoft.EntityFrameworkCore;
+
+namespace codefirsteg
+{
+
+class CodeFirstIGTcontext:DbContext
+{
+public CodeFirstIGTcontext()
+    {
+    }
+
+    public CodeFirstIGTcontext(DbContextOptions<CodeFirstIGTcontext> options)
+        : base(options)
+    {
+    }
+
+    public virtual DbSet<Employee> Employees { get; set; }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
+        => optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=CodeFirstIGTDb;Trusted_Connection=True;");
+
+}
+}
+
+
+Commands:
+dotnet ef migrations add "migr1"
+dotnet ef database update
